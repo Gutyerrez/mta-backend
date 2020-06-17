@@ -2,11 +2,13 @@
 
 import { Request, Response } from 'express';
 
-const Home = (request: Request, response: Response) => {
-  return response.json({
-    status: response.statusCode,
-    ping: 'Pong!'
-  });
-};
+class HomeController {
+  async index(request: Request, response: Response) {
+    return response.json({
+      status: response.statusCode,
+      ping: 'Pong!'
+    });
+  }
+}
 
-export default Home;
+export default HomeController;
