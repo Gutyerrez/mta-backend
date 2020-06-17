@@ -1,19 +1,21 @@
 "use strict";
 
-import express, { Request, Response } from 'express';
+import express from 'express';
 
 const Router = express.Router();
 
-import Home from './controllers/Home';
-import Payment from './controllers/Payment';
+import HomeController from './controllers/HomeController';
+import PaymentController from './controllers/PaymentController';
 
-Router.get('/', Home);
+const paymentController = new PaymentController();
+
+Router.get('/', HomeController);
 
 Router.route('/payment')
-  .get(Payment.index)
-  .post(Payment.store)
-  .put(Payment.update);
+  .get(paymentController.index)
+  .post(paymentController.store)
+  .put(paymentController.update);
 
-Router.get('/payment/:id', Payment.show);
+Router.get('/payment/:id', paymentController.show);
 
 export default Router;
