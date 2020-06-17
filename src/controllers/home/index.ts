@@ -4,7 +4,8 @@ import { Request, Response } from 'express';
 
 const Home = (request: Request, response: Response) => {
   return response.json({
-    hello: 'World!'
+    status: response.statusCode,
+    ping: 'Pong!'
   });
 };
 
