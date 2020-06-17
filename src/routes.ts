@@ -4,10 +4,8 @@ import express, { Request, Response } from 'express';
 
 const Router = express.Router();
 
-Router.get('/', (request: Request, response: Response) => {
-  return response.json({
-    hello: 'World!'
-  });
-});
+import Home from './controllers/Home';
+
+Router.get('/home', Home);
 
 export default Router;
